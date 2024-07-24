@@ -3,8 +3,12 @@ import styled, { keyframes } from "styled-components";
 import { FaUserCircle } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
+  CalendarDays,
   Home,
   LogOut,
+  TreePalm,
+  UserPlus,
+  Users,
 } from "lucide-react";
 
 const fadeIn = keyframes`
@@ -22,7 +26,7 @@ const NavBarContainer = styled.div`
   width: 20vw;
   min-width: 270px;
   min-height: 100vh;
-  background-color: #345237;
+  background-color: #2f5a2b;
   padding: 64px 0;
   display: flex;
   flex-direction: column;
@@ -142,20 +146,21 @@ const NavBar = ({ role }) => {
         {role === "pontista" && (
           <>
             <NavLinkStyled  to="/pontista/home">
-              <Home /> Home Pontista
+              <Home /> Home 
             </NavLinkStyled>
             <NavLinkStyled to="/pontista/funcao1">
-              Função 1
+              <CalendarDays/> Calendário
             </NavLinkStyled>
             <NavLinkStyled to="/pontista/funcao2">
-              Função 2
+              <Users /> Ver Pontistas
+            </NavLinkStyled>
+            <NavLinkStyled to="/pontista/funcao2">
+              <TreePalm />Pedidos de Férias
             </NavLinkStyled>
             <NavLinkStyled to="/pontista/funcao3">
-              Função 3
+              <UserPlus />Cadastrar Pontista
             </NavLinkStyled>
-            <NavLinkStyled to="/pontista/funcao4">
-              Função 4
-            </NavLinkStyled>
+
           </>
         )}
       </LinksContainer>

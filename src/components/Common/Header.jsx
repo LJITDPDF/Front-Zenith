@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { CircleUser } from "lucide-react";
+import { CircleUser, CircleUserRound } from "lucide-react";
 
 const HeaderContainer = styled.div`
   width: 80vw;
@@ -23,7 +23,7 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const Header = ({ nomePontista }) => {
+const Header = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -51,7 +51,9 @@ const Header = ({ nomePontista }) => {
     <HeaderContainer>
       <p>Bem-vindo(a) ao Zenith</p>
       <p>Data Atual: {getCurrentDate()} - Hora Atual: {getCurrentTime()}</p>
-      <a href=""><CircleUser /></a>
+      <div>
+        <CircleUserRound size={30}/>
+      </div>
     </HeaderContainer>
   );
 };
