@@ -12,6 +12,7 @@ const FooterContainer = styled.div`
     padding: 0 32px;
     gap: 16px;
     border-top: 2px solid #c3c3c3;
+    background-color: white;
     p{
         color: #797979;
         font-weight: bold;

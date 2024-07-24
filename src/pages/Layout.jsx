@@ -8,15 +8,15 @@ const LayOutContainer = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: row;
-  align-items: start;
-  justify-content: start;
+  align-items: center;
+  justify-content: center;
 `;
 const WrapperContainer = styled.div`
   width: 80vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
 const ChildrenContainer = styled.div`

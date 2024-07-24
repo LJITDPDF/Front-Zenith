@@ -1,74 +1,35 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { Link, NavLink } from "react-router-dom";
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import { FaUserCircle } from "react-icons/fa";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   Home,
-  Users,
-  UserPlus,
   LogOut,
-  CalendarDays,
-  UserRoundX,
-  CalendarPlus,
-  FileStack,
-  CalendarSearch,
-  ClipboardList,
-  FilePen
 } from "lucide-react";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 const NavBarContainer = styled.div`
   width: 20vw;
   min-width: 270px;
   min-height: 100vh;
-  background-color: #3B7135;
+  background-color: #345237;
   padding: 64px 0;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-`;
-
-const MenuList = styled.ul`
-  flex-grow: 1;
-`;
-
-const Option = styled.li`
-  margin-top: 10px;
-  width: 20vw;
-  height: auto;
-  position: relative;
-  ${({ selected }) => selected && `
-    background-color: #1bce48;
-  `}
-  &:hover {
-    transition: 0.6s;
-    background-color: #1bce48;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: #fff;
-  font-size: 25px;
-  margin-left: 10px;
-  margin-bottom: 5px;
-  display: flex;
-  padding: 10px;
-  cursor: pointer;
-  p {
-    margin-left: 8px;
-    font-size: 20px;
-  }
-`;
-
-const LogoutContainer = styled.div`
-  margin-top: auto;
-  p {
-    margin-left: 8px;
-    font-size: 20px;
-  }
-  &:hover {
-    transition: 0.6s;
-    background-color: #1bce48;
-  }
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  animation: ${fadeIn} 0.5s ease-out;
 `;
 
 const LinksContainer = styled.div`
@@ -77,7 +38,7 @@ const LinksContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 12px;
-`
+`;
 
 const NavLinkStyled = styled(NavLink)`
   width: 100%;
@@ -93,7 +54,7 @@ const NavLinkStyled = styled(NavLink)`
   transition: background-color 0.3s, color 0.3s, transform 0.2s;
   &.active,
   &:hover {
-    background-color: #1bce48;
+    background-color: #E4E4E4;
     color: #000000;
     svg {
       stroke-width: 2.5px;
@@ -104,78 +65,103 @@ const NavLinkStyled = styled(NavLink)`
   }
 `;
 
+const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  animation: ${fadeIn} 0.5s ease-out;
+  transition: transform 0.3s, filter 0.3s;
+  color: white; /* Adiciona cor branca aos textos diretamente dentro do container */
+
+  &:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    cursor: pointer;
+  }
+
+  & > * {
+    color: white; /* Aplica cor branca a todos os filhos */
+  }
+`;
+
 const NavBar = ({ role }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Aqui você pode adicionar a lógica de logout, se necessário
+    navigate("/", { state: { reload: true } });
+  };
 
   return (
     <NavBarContainer>
+      <LogoContainer>
+        <FaUserCircle size={80} />
+        <h4>Nome Usuário</h4>
+      </LogoContainer>
       <LinksContainer>
-        {
-          role === "admin" && (
-            <>
-              <NavLinkStyled>
-                <Home />Home Admin
-              </NavLinkStyled>
-              <NavLinkStyled>
-                <Home />Home Admin
-              </NavLinkStyled>
-              <NavLinkStyled>
-                <Home />Home Admin
-              </NavLinkStyled>
-              <NavLinkStyled>
-                <Home />Home Admin
-              </NavLinkStyled>
-              <NavLinkStyled>
-                Home Admin
-              </NavLinkStyled>
-            </>
-          )
-        }
-        {
-          role === "supervisor" && (
-            <>
-              <NavLinkStyled>
-                <Home />Home Supervisor
-              </NavLinkStyled>
-              <NavLinkStyled>
-                <Home />Home Supervisor
-              </NavLinkStyled>
-              <NavLinkStyled>
-                <Home />Home Supervisor
-              </NavLinkStyled>
-              <NavLinkStyled>
-                <Home />Home Supervisor
-              </NavLinkStyled>
-              <NavLinkStyled>
-                <Home />Home Supervisor
-              </NavLinkStyled>
-            </>
-          )
-        }
-        {
-          role === "pontista" && (
-            <>
-              <NavLinkStyled>
-                <Home />Home Pontista
-              </NavLinkStyled>
-              <NavLinkStyled>
-                <Home />Home Pontista
-              </NavLinkStyled>
-              <NavLinkStyled>
-                <Home />Home Pontista
-              </NavLinkStyled>
-              <NavLinkStyled>
-                <Home />Home Pontista
-              </NavLinkStyled>
-              <NavLinkStyled>
-                <Home />Home Pontista
-              </NavLinkStyled>
-            </>
-          )
-        }
+        {role === "admin" && (
+          <>
+            <NavLinkStyled  to="/">
+              <Home /> Home Admin
+            </NavLinkStyled>
+            <NavLinkStyled to="/admin/funcao1">
+              Função 1
+            </NavLinkStyled>
+            <NavLinkStyled to="/admin/funcao2">
+              Função 2
+            </NavLinkStyled>
+            <NavLinkStyled to="/admin/funcao3">
+              Função 3
+            </NavLinkStyled>
+            <NavLinkStyled to="/admin/funcao4">
+              Função 4
+            </NavLinkStyled>
+          </>
+        )}
+        {role === "supervisor" && (
+          <>
+            <NavLinkStyled  to="/">
+              <Home /> Home Supervisor
+            </NavLinkStyled>
+            <NavLinkStyled to="/supervisor/funcao1">
+              Função 1
+            </NavLinkStyled>
+            <NavLinkStyled to="/supervisor/funcao2">
+              Função 2
+            </NavLinkStyled>
+            <NavLinkStyled to="/supervisor/funcao3">
+              Função 3
+            </NavLinkStyled>
+            <NavLinkStyled to="/supervisor/funcao4">
+              Função 4
+            </NavLinkStyled>
+          </>
+        )}
+        {role === "pontista" && (
+          <>
+            <NavLinkStyled  to="/pontista/home">
+              <Home /> Home Pontista
+            </NavLinkStyled>
+            <NavLinkStyled to="/pontista/funcao1">
+              Função 1
+            </NavLinkStyled>
+            <NavLinkStyled to="/pontista/funcao2">
+              Função 2
+            </NavLinkStyled>
+            <NavLinkStyled to="/pontista/funcao3">
+              Função 3
+            </NavLinkStyled>
+            <NavLinkStyled to="/pontista/funcao4">
+              Função 4
+            </NavLinkStyled>
+          </>
+        )}
       </LinksContainer>
-      <LogoutContainer>
-        <StyledLink to="/"><LogOut /><p>Logout</p></StyledLink>
-      </LogoutContainer>
+      <NavLinkStyled to="/" onClick={handleLogout}>
+        <LogOut /> Sair
+      </NavLinkStyled>
     </NavBarContainer>
   );
 };

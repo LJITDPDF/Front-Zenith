@@ -4,13 +4,13 @@ import { CircleUser } from "lucide-react";
 
 const HeaderContainer = styled.div`
   width: 80vw;
-  height: 40px;
+  height: 7vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
   border-bottom: 2px solid #c3c3c3;
-  background-color: #f1f1f1;
+  background-color: white;
   p {
     color: #000;
     font-weight: bold;
