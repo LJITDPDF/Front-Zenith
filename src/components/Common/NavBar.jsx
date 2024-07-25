@@ -9,6 +9,9 @@ import {
   TreePalm,
   UserPlus,
   Users,
+  FilePen,
+  FilePlus2,
+  UserRoundX
 } from "lucide-react";
 
 const fadeIn = keyframes`
@@ -152,13 +155,16 @@ const NavBar = ({ role }) => {
               <CalendarDays/> Calendário
             </NavLinkStyled>
             <NavLinkStyled to="/pontista/funcao2">
-              <Users /> Ver Pontistas
+              <FilePlus2 /> Solicitar Férias
             </NavLinkStyled>
             <NavLinkStyled to="/pontista/funcao2">
               <TreePalm />Pedidos de Férias
             </NavLinkStyled>
             <NavLinkStyled to="/pontista/funcao3">
-              <UserPlus />Cadastrar Pontista
+              <UserPlus />Ver Faltas
+            </NavLinkStyled>
+            <NavLinkStyled to="/pontista/funcao3">
+              <FilePen />Justificar Faltas
             </NavLinkStyled>
 
           </>

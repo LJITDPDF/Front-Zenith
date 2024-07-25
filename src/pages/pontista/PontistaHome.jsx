@@ -2,15 +2,9 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { 
     Clock, 
-    ClipboardList, 
-    CalendarPlus, 
-    FileStack,
-    FilePen,
-    CalendarDays,
     TreePalm,
-    Users,
-    Files,
-    UserPlus
+    FileText,
+    FilePlus2
  } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -40,7 +34,7 @@ const PageContainer = styled.div`
 const PontistaHomeCard = styled.div`
     width: 50%;
     height: auto;
-    background: #d9d9d9;
+    background: #fff;
     border-radius: 1rem;
     display: flex;
     gap: 1rem;
@@ -78,12 +72,13 @@ const CardItem = styled.div`
 const PontistaHome = () => {
     return (
         <PageContainer>
-            <h2>ACESSO RÁPIDO</h2>
             <PontistaHomeCard>
+                <h2>ACESSO RÁPIDO</h2>
+                <CardItem>Registrar Ponto<Clock /></CardItem>
+                <CardItem>Folhas de Ponto <FileText /></CardItem>
                 <CardItem>Pedidos de Férias<TreePalm/></CardItem>
-                <CardItem>Cadastrar Pontista <UserPlus /></CardItem>
-                <CardItem>Ver Pontistas <Users /></CardItem>
-                <CardItem>Folhas de Ponto <Files /></CardItem>
+                <CardItem>Solicitar Férias<FilePlus2 /></CardItem>
+                <CardItem>Justificar Faltas<FilePlus2 /></CardItem>
             </PontistaHomeCard>
         </PageContainer>
     );
