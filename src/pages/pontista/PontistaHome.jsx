@@ -4,7 +4,8 @@ import {
     Clock, 
     TreePalm,
     FileText,
-    FilePlus2
+    FilePlus2,
+    FilePen
  } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -69,6 +70,14 @@ const CardItem = styled.div`
     }
 `;
 
+const StyledLink = styled(Link)`
+    width: 100%;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+`;
+
 const PontistaHome = () => {
     return (
         <PageContainer>
@@ -76,9 +85,9 @@ const PontistaHome = () => {
                 <h2>ACESSO RÁPIDO</h2>
                 <CardItem>Registrar Ponto<Clock /></CardItem>
                 <CardItem>Folhas de Ponto <FileText /></CardItem>
-                <CardItem>Pedidos de Férias<TreePalm/></CardItem>
+                <StyledLink to="/pontista/solicitacoesdeferias"><CardItem>Pedidos de Férias<TreePalm/></CardItem></StyledLink>
                 <CardItem>Solicitar Férias<FilePlus2 /></CardItem>
-                <CardItem>Justificar Faltas<FilePlus2 /></CardItem>
+                <CardItem>Justificar Faltas<FilePen /></CardItem>
             </PontistaHomeCard>
         </PageContainer>
     );
