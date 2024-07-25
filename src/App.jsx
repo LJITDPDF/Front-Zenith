@@ -7,7 +7,6 @@ import SupervisorHome from './pages/supervisor/SupervisorHome'
 import AdminHome from './pages/admin/AdminHome'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
