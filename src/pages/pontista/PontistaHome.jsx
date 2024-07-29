@@ -69,12 +69,20 @@ const CardItem = styled.div`
     }
 `;
 
+const StyledLink = styled(Link)`
+    width: 100%;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+`;
+
 const PontistaHome = () => {
     return (
         <PageContainer>
             <PontistaHomeCard>
                 <h2>ACESSO RÁPIDO</h2>
-                <CardItem>Registrar Ponto<Clock /></CardItem>
+                <StyledLink to="/pontista/registrarponto"><CardItem>Registrar Ponto<Clock /></CardItem></StyledLink>
                 <CardItem>Folhas de Ponto <FileText /></CardItem>
                 <CardItem>Pedidos de Férias<TreePalm/></CardItem>
                 <CardItem>Solicitar Férias<FilePlus2 /></CardItem>
