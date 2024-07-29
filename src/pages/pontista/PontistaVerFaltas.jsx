@@ -41,13 +41,13 @@ const ErrorMessage = styled.div`
 const BotaoJustificarFalta = styled.button`
   width: 120px;
   height: 30px;
-  background-color: #146bb3;
+  background-color: #168ef0;
   color: #fff;
   cursor: pointer;
   border: none;
   border-radius: 10px;
   &:hover {
-    background-color: #0a4b78;
+    background-color: #126eaf;
     transition: .3s;
   }
 `;
