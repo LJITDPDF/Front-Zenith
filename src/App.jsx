@@ -5,6 +5,7 @@ import PontistaHome from './pages/pontista/PontistaHome'
 import Layout from './pages/Layout'
 import SupervisorHome from './pages/supervisor/SupervisorHome'
 import AdminHome from './pages/admin/AdminHome'
+import PontistaSolicitarFerias from './pages/pontista/PontistaSolicitarFerias'
 
 function App() {
 
@@ -17,6 +18,12 @@ function App() {
           <Route path="/pontista/home" element={
             <Layout role="pontista" >
               <PontistaHome />
+            </Layout>
+          } />
+
+          <Route path="/pontista/solicitarferias" element={
+            <Layout role="pontista" >
+              <PontistaSolicitarFerias />
             </Layout>
           } />
 

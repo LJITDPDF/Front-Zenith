@@ -154,7 +154,7 @@ const NavBar = ({ role }) => {
             <NavLinkStyled to="/pontista/funcao1">
               <CalendarDays/> Calendário
             </NavLinkStyled>
-            <NavLinkStyled to="/pontista/funcao2">
+            <NavLinkStyled to="/pontista/solicitarferias">
               <FilePlus2 /> Solicitar Férias
             </NavLinkStyled>
             <NavLinkStyled to="/pontista/funcao2">
