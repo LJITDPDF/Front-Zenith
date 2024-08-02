@@ -23,7 +23,7 @@ const PontistSolicitacoesDeFeriasContainer = styled.div`
   padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
-  max-height: calc(100vh - 40px); 
+  max-height: 700px; 
 `;
 
 const Titulo = styled.div`
