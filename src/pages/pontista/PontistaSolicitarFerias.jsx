@@ -12,8 +12,8 @@ const PageContainer = styled.div`
 `;
 
 const PontistaSolicitarFeriasContainer = styled.div`
-  width: 650px;
-  height: 400px;
+  width: 600px;
+  height: 300px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@ const Button = styled.button`
 `;
 
 const PontistaSolicitarFerias = () => {
-  const [id, setId] = useState('');
+  const id = 1;
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [message, setMessage] = useState('');
@@ -77,12 +77,6 @@ const PontistaSolicitarFerias = () => {
     <PageContainer>
       <PontistaSolicitarFeriasContainer>
         <h1>Solicitar Férias</h1>
-        <Input
-          type="text"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-          placeholder="ID"
-        />
         <Input
           type="date"
           value={startDate}
