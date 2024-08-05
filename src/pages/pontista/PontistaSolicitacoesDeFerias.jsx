@@ -40,16 +40,17 @@ const Titulo = styled.div`
 const SolicitacaoContainer = styled.div`
   display: flex;
   align-items: center;
-  background-color: #f9f9f9;
+  justify-content: center;
+  background-color: #dcdbdb;
   border-radius: 5px;
   padding: 10px 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 `;
 
 const StatusIndicator = styled.div`
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: ${({ status }) => {
     switch (status) {
