@@ -56,6 +56,8 @@ const BotaoRegistrar = styled.button`
 const PontistaRegistrarPonto = () => {
     const [horaAtual, setHoraAtual] = useState(new Date());
     const [sentido, setSentido] = useState('ENTRADA');
+    const [pontoRegistrado, setPontoRegistrado] = useState(false);
+    const pontistaId = 1; // Substitua pelo ID real do pontista
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -66,10 +68,7 @@ const PontistaRegistrarPonto = () => {
 
     const registrarPonto = () => {
         const url = sentido === 'ENTRADA' ? 'http://localhost:3000/PontoEntrada' : 'http://localhost:3000/PontoSaida';
-        const body = JSON.stringify({ data: horaAtual });
-
-        console.log('Enviando requisição para:', url);
-        console.log('Corpo da requisição:', body);
+        const body = JSON.stringify({ id: pontistaId });
 
         fetch(url, {
             method: 'POST',
@@ -86,25 +85,25 @@ const PontistaRegistrarPonto = () => {
             })
             .then(data => {
                 console.log('Ponto registrado com sucesso:', data);
+                setPontoRegistrado(true);
+                setSentido(sentido === 'ENTRADA' ? 'SAÍDA' : 'ENTRADA');
             })
             .catch(error => {
                 console.error('Erro ao registrar ponto:', error);
             });
     };
 
-    const alternarSentido = () => {
-        setSentido(prevSentido => (prevSentido === 'ENTRADA' ? 'SAÍDA' : 'ENTRADA'));
-    };
-
     return (
         <PageContainer>
             <PontistaRegistrarPontoContainer>
+                
                 <h2>Registrar Ponto</h2>
                 <HorasContainer>{horaAtual.toLocaleTimeString()}</HorasContainer>
                 <p>Deseja registrar o ponto?</p>
                 <p>Sentido: <strong>{sentido}</strong></p>
-                <BotaoRegistrar onClick={registrarPonto}>Sim, registrar</BotaoRegistrar>
-                <BotaoRegistrar onClick={alternarSentido}>Alternar para {sentido === 'ENTRADA' ? 'SAÍDA' : 'ENTRADA'}</BotaoRegistrar>
+                <BotaoRegistrar onClick={registrarPonto} disabled={pontoRegistrado && sentido === 'ENTRADA'}>
+                    Sim, registrar
+                </BotaoRegistrar>
             </PontistaRegistrarPontoContainer>
         </PageContainer>
     );
